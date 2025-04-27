@@ -1,0 +1,222 @@
+<!-- <div class="jumbotron mt-5">
+    <h1 class="display-3">Hello, world!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4">
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+  </div> -->
+  <!-- En-tête avec image de fond -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bienvenue chez {{nom_agence}}</h1>
+    <p>Votre partenaire idéal pour trouver votre bien immobilier</p>
+    <button routerLink="/annonces" class="btn btn-primary">Consulter nos annonces</button>
+  </div>
+</section>
+
+<!-- Section présentation de l'agence -->
+<section class="about">
+  <div class="container">
+    <h2>Qui sommes-nous ?</h2>
+    <p>Nous sommes une agence immobilière passionnée, spécialisée dans la vente et la location de biens. Avec des années d'expérience, nous vous aidons à trouver le bien idéal pour vos besoins.</p>
+  </div>
+</section>
+
+<!-- Section des témoignages clients -->
+<section class="testimonials">
+  <div class="container">
+    <h2>Ce que nos clients disent de nous</h2>
+    <div class="testimonial-cards">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <img [src]="testimonial.image" alt="Photo de {{testimonial.name}}" class="testimonial-image"/>
+        <div class="testimonial-text">
+          <p>{{testimonial.message}}</p>
+          <p><strong>{{testimonial.name}}</strong></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section d'appel à l'action -->
+<section class="cta">
+  <div class="container">
+    <h2>Prêt à trouver votre nouveau chez-vous ?</h2>
+    <button routerLink="/annonces" class="btn btn-primary w-100">Voir les annonces</button>
+  </div>
+</section>
+
+<!-- Hero Section -->
+<div class="hero-section position-relative">
+  <div class="container">
+    <div class="row min-vh-75 align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-4 fw-bold text-white mb-4">Bienvenue chez {{nom_agence}}</h1>
+        <p class="lead text-white mb-4">Votre partenaire de confiance pour tous vos projets immobiliers en Tunisie.</p>
+        <a routerLink="/annonces" class="btn btn-primary btn-lg">Découvrir nos services</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+</div>
+
+<!-- Features Section -->
+<div class="container py-5">
+  <div class="row text-center mb-5">
+    <div class="col-12">
+      <h2 class="display-5 fw-bold">Pourquoi Nous Choisir ?</h2>
+      <p class="lead text-muted">Des services immobiliers de qualité pour tous vos besoins</p>
+    </div>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-home fa-3x text-primary mb-3"></i>
+          <h3 class="h4">Large Sélection</h3>
+          <p class="text-muted">Des milliers de biens immobiliers disponibles dans toute la Tunisie.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
+          <h3 class="h4">Service Personnalisé</h3>
+          <p class="text-muted">Une équipe dédiée pour vous accompagner dans votre recherche.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body text-center p-4">
+          <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+          <h3 class="h4">Sécurité Garantie</h3>
+          <p class="text-muted">Transactions sécurisées et biens vérifiés pour votre tranquillité.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- About Section -->
+<div class="bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="display-5 fw-bold mb-4">Qui Sommes-Nous ?</h2>
+        <p class="lead text-muted mb-4">
+          Nous sommes une agence immobilière passionnée, spécialisée dans la vente et la location de biens en Tunisie. 
+          Avec des années d'expérience, nous vous aidons à trouver le bien idéal pour vos besoins.
+        </p>
+        <p class="text-muted">
+          Notre mission est de vous accompagner dans toutes les étapes de votre projet immobilier, 
+          en vous offrant un service personnalisé et des conseils avisés.
+        </p>
+      </div>
+      <div class="col-lg-6">
+        <img src="assets/images/about.jpg" alt="Notre agence" class="img-fluid rounded shadow">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Testimonials Section -->
+<div class="container py-5">
+  <div class="row text-center mb-5">
+    <div class="col-12">
+      <h2 class="display-5 fw-bold">Ce que nos clients disent</h2>
+      <p class="lead text-muted">Découvrez les témoignages de nos clients satisfaits</p>
+    </div>
+  </div>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body p-4">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/images/testimonial1.jpg" alt="Client" class="rounded-circle me-3" width="60">
+            <div>
+              <h5 class="mb-0">Mohamed S.</h5>
+              <p class="text-muted mb-0">Tunis</p>
+            </div>
+          </div>
+          <p class="text-muted">"Une équipe professionnelle qui m'a aidé à trouver la maison parfaite. Je recommande vivement !"</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body p-4">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/images/testimonial2.jpg" alt="Client" class="rounded-circle me-3" width="60">
+            <div>
+              <h5 class="mb-0">Amira B.</h5>
+              <p class="text-muted mb-0">Sousse</p>
+            </div>
+          </div>
+          <p class="text-muted">"Service exceptionnel et accompagnement personnalisé. Merci pour votre professionnalisme !"</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-body p-4">
+          <div class="d-flex align-items-center mb-3">
+            <img src="assets/images/testimonial3.jpg" alt="Client" class="rounded-circle me-3" width="60">
+            <div>
+              <h5 class="mb-0">Karim L.</h5>
+              <p class="text-muted mb-0">Hammamet</p>
+            </div>
+          </div>
+          <p class="text-muted">"Une agence sérieuse et fiable. J'ai trouvé mon appartement en moins d'une semaine !"</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="bg-light py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="display-5 fw-bold mb-4">Contactez-Nous</h2>
+        <p class="lead text-muted mb-4">Notre équipe est à votre disposition pour répondre à toutes vos questions.</p>
+        <div class="d-flex align-items-center mb-3">
+          <i class="fas fa-phone text-primary me-3 fa-2x"></i>
+          <div>
+            <h5 class="mb-0">Téléphone</h5>
+            <p class="text-muted mb-0">+216 71 234 567</p>
+          </div>
+        </div>
+        <div class="d-flex align-items-center">
+          <i class="fas fa-envelope text-primary me-3 fa-2x"></i>
+          <div>
+            <h5 class="mb-0">Email</h5>
+            <p class="text-muted mb-0">contact&#64;agence-immobiliere.tn</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="card shadow-sm">
+          <div class="card-body p-4">
+            <form>
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="Votre nom">
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="Votre email">
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" rows="4" placeholder="Votre message"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Envoyer le message</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

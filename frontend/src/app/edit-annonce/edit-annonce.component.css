@@ -1,0 +1,148 @@
+/* Conteneur principal centré */
+.custom-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Prendre toute la hauteur de la fenêtre */
+    background-color: #f4f7f6; /* Couleur de fond légère */
+    position: relative;
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Formulaire avec bordure et ombre */
+  .custom-form {
+    width: 80%;
+    max-width: 800px; /* Limite la taille du formulaire */
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  /* Champ de formulaire avec marges et espacement */
+  .custom-form .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  /* Champ de formulaire centré */
+  .custom-form .form-group label {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  
+  /* Ajuster la taille des champs de saisie */
+  .custom-form .form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    padding: 0.75rem;
+    width: 100%; /* Prendre toute la largeur du parent */
+    max-width: 100%; /* S'assurer que les champs ne s'étendent pas trop */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Focus des champs */
+  .custom-form .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+  }
+  
+  /* Champs validés ou invalidés */
+  .custom-form .form-control.is-invalid {
+    border-color: #dc3545;
+  }
+  
+  .custom-form .form-control.is-valid {
+    border-color: #28a745;
+  }
+  
+  /* Ajuster les boutons */
+  .custom-btn {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    margin-top: 1rem;
+  }
+  
+  /* Effet au survol du bouton */
+  .custom-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Taille des colonnes dans la grille */
+  .custom-form .form-row .form-group {
+    flex: 1;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  /* Sélecteurs plus larges avec un espace de marge */
+  .custom-form select.form-control {
+    background-color: #ffffff;
+    border-color: #ced4da;
+    padding-right: 2.5rem;
+  }
+  
+  /* Espacement entre les éléments */
+  .custom-form .form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  /* Ajouter de l'espace dans la section des fichiers */
+  .custom-form .form-control-file {
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  
+  /* Espacement général dans le formulaire */
+  .custom-form-container {
+    padding: 20px;
+  }
+  
+  /* Pour les champs qui sont très longs, éviter qu'ils s'étalent trop */
+  .custom-form input, .custom-form select, .custom-form textarea {
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .selected-files {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+  }
+  
+  .selected-files ul {
+    margin-bottom: 0;
+  }
+  
+  .selected-files li {
+    padding: 2px 0;
+  }
+  
+  .error-message {
+    color: #dc3545;
+    margin-top: 5px;
+    font-size: 0.875rem;
+  }
+  

@@ -1,0 +1,206 @@
+<div class="custom-form-container">
+    <!-- Loading Spinner -->
+    <div *ngIf="isLoading" class="position-fixed w-100 h-100 d-flex justify-content-center align-items-center" 
+         style="top: 0; left: 0; background: rgba(255,255,255,0.8); z-index: 1000;">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Chargement...</span>
+      </div>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="errorMessage" class="alert alert-danger mb-3">
+      {{ errorMessage }}
+    </div>
+
+    <form
+      [formGroup]="bienForm"
+      (ngSubmit)="onSubmit()"
+      class="custom-form"
+    >
+    <div class="form-group">
+        <label for="titre">Titre</label>
+        <input
+          type="text"
+          class="form-control"
+          id="titre"
+          formControlName="titre"
+          [ngClass]="{
+            'is-invalid': bienForm.get('titre')?.invalid && bienForm.get('titre')?.dirty,
+            'is-valid': bienForm.get('titre')?.valid
+          }"
+          [(ngModel)]="annonce.titre"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea
+          class="form-control"
+          id="description"
+          formControlName="description"
+          rows="3"
+          [ngClass]="{
+            'is-invalid': bienForm.get('description')?.invalid && bienForm.get('description')?.dirty,
+            'is-valid': bienForm.get('description')?.valid
+          }"
+          [(ngModel)]="annonce.description"
+        ></textarea>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="superficie">Superficie (m²)</label>
+          <input
+            type="number"
+            class="form-control"
+            id="superficie"
+            formControlName="superficie"
+            [ngClass]="{
+                'is-invalid': bienForm.get('superficie')?.invalid && bienForm.get('superficie')?.dirty,
+                'is-valid': bienForm.get('superficie')?.valid
+              }"
+              [(ngModel)]="annonce.superficie"
+          />
+        </div>
+        <div class="form-group col-md-6">
+          <label for="pieces">Nombre de pièces</label>
+          <input
+            type="number"
+            class="form-control"
+            id="pieces"
+            formControlName="pieces"
+            [ngClass]="{
+                'is-invalid': bienForm.get('pieces')?.invalid && bienForm.get('pieces')?.dirty,
+                'is-valid': bienForm.get('pieces')?.valid
+              }"
+              [(ngModel)]="annonce.pieces"
+          />
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="localisation">Localisation</label>
+        <input
+          type="text"
+          class="form-control"
+          id="localisation"
+          formControlName="localisation"
+          [ngClass]="{
+            'is-invalid': bienForm.get('localisation')?.invalid && bienForm.get('localisation')?.dirty,
+            'is-valid': bienForm.get('localisation')?.valid
+          }"
+          [(ngModel)]="annonce.localisation"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="prix">Prix (€)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="prix"
+          formControlName="prix"
+          [ngClass]="{
+            'is-invalid': bienForm.get('prix')?.invalid && bienForm.get('prix')?.dirty,
+            'is-valid': bienForm.get('prix')?.valid
+          }"
+          [(ngModel)]="annonce.prix"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="photos">Photos</label>
+        <input
+          type="file"
+          class="form-control"
+          id="photos"
+          (change)="onFileChange($event)"
+          multiple
+          accept="image/*"
+        />
+        <small class="form-text text-muted">
+          Sélectionnez une ou plusieurs images (JPG, PNG, max 5Mo par image)
+        </small>
+      </div>
+      
+      <div class="form-group">
+        <label for="contact">Contact</label>
+        <input
+          type="text"
+          class="form-control"
+          id="contact"
+          formControlName="contact"
+          [ngClass]="{
+            'is-invalid': bienForm.get('contact')?.invalid && bienForm.get('contact')?.dirty,
+            'is-valid': bienForm.get('contact')?.valid
+          }"
+          [(ngModel)]="annonce.contact"
+        />
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="typeBien">Type de Bien</label>
+          <select class="form-control" id="typeBien" formControlName="typeBien" [ngClass]="{
+            'is-invalid': bienForm.get('typeBien')?.invalid && bienForm.get('typeBien')?.dirty,
+            'is-valid': bienForm.get('typeBien')?.valid
+          }"
+          [(ngModel)]="annonce.typeBien">
+            <option value="APPARTEMENT">Appartement</option>
+            <option value="MAISON">Maison</option>
+            <option value="TERRAIN">Terrain</option>
+          </select>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="categorie">Catégorie</label>
+          <select class="form-control" id="categorie" formControlName="categorie" [ngClass]="{
+            'is-invalid': bienForm.get('categorie')?.invalid && bienForm.get('categorie')?.dirty,
+            'is-valid': bienForm.get('categorie')?.valid
+          }"
+          [(ngModel)]="annonce.categorie">
+            <option value="VENTE">Vente</option>
+            <option value="LOCATION">Location</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Preview des images sélectionnées -->
+      <div class="selected-files mt-2" *ngIf="selectedFiles.length > 0">
+        <p>Images sélectionnées ({{ selectedFiles.length }}) :</p>
+        <div class="row">
+          <div class="col-3 mb-2" *ngFor="let file of selectedFiles">
+            <div class="card">
+              <div class="card-body p-2">
+                <p class="mb-0 small text-truncate">{{ file.name }}</p>
+                <small class="text-muted">{{ (file.size / 1024).toFixed(1) }} KB</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicateur de chargement -->
+      <div class="progress mt-3 mb-3" *ngIf="isLoading && selectedFiles.length > 0">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" 
+             role="progressbar" 
+             style="width: 100%">
+          Chargement des images...
+        </div>
+      </div>
+
+      <!-- Bouton de soumission -->
+      <div class="d-flex justify-content-between mt-4">
+        <button type="button" class="btn btn-secondary" routerLink="/annonces">
+          Annuler
+        </button>
+        <button type="submit" 
+                class="btn btn-primary" 
+                [disabled]="bienForm.invalid || isLoading">
+          <span *ngIf="isLoading" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+          {{ isLoading ? 'Enregistrement...' : 'Soumettre' }}
+        </button>
+      </div>
+    </form>
+  </div>
+  
+

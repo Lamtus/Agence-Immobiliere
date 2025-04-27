@@ -1,0 +1,51 @@
+{
+  "Admin": [
+    {
+      "id": "1",
+      "nom": "Admin Test",
+      "email": "admin@example.com",
+      "mot_de_passe": "$2b$10$eImiTXuWVxfM37uY4JANj.Qr7g0v6KzkR5xq8lJpF52ZZW0EcxAz."
+    }
+  ],
+  "annonces": [
+    {
+      "id": "101",
+      "titre": "Appartement S+2 à La Marsa",
+      "description": "Un bel appartement moderne avec vue sur mer situé à La Marsa.",
+      "superficie": 120.5,
+      "nombre_de_pieces": 3,
+      "localisation": "La Marsa, Tunis",
+      "prix": 420000,
+      "photos": [
+        "images/house.jpeg"
+      ],
+      "contact": "+21612345678",
+      "date_publication": "2025-03-28T10:00:00Z"
+    },
+    {
+      "id": "102",
+      "titre": "Villa avec piscine à Hammamet",
+      "description": "Spacieuse villa avec piscine privée et grand jardin.",
+      "superficie": 350,
+      "nombre_de_pieces": 6,
+      "localisation": "Hammamet, Nabeul",
+      "prix": 850000,
+      "photos": [],
+      "contact": "+21698765432",
+      "date_publication": "2025-03-30T15:30:00Z"
+    },
+    {
+      "id": "103",
+      "titre": "Terrain à Hammamet",
+      "description": "Terrain a mrezga",
+      "superficie": 15000,
+      "pieces": 0,
+      "localisation": "Hammamet, Nabeul",
+      "prix": 150000,
+      "photos": [],
+      "contact": "+21698765432",
+      "typeBien": "Terrain",
+      "categorie": "Vente"
+    }
+  ]
+}

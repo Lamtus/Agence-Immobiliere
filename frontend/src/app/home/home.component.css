@@ -1,0 +1,208 @@
+/* Style pour l'en-tête avec image de fond */
+body {
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  /* Style pour l'en-tête avec image de fond */
+  .hero {
+    background-image: url('../../assets/images/kitchen-2400367_1280.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 120px 0;
+    text-align: center;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .hero .hero-content {
+    max-width: 600px;
+    margin: 0 auto;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .hero h1 {
+    font-size: 3.5rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .hero p {
+    font-size: 1.5rem;
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 30px;
+  }
+  
+  .hero .btn {
+    font-size: 1.2rem;
+    padding: 15px 30px;
+    /* background-color: #007bff; */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .hero .btn:hover {
+    /* background-color: #0056b3; */
+    transform: scale(1.05);
+  }
+  
+  /* Style pour la section "About" */
+  .about {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .about .container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .about p {
+    font-size: 1.2rem;
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.8;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Style pour les témoignages */
+  .testimonials {
+    padding: 80px 0;
+    background-color: #ffffff;
+  }
+  
+  .testimonials .container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  
+  .testimonial-cards {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+    animation: fadeInUp 1.5s ease-in-out;
+  }
+  
+  .testimonial-card {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    padding: 25px;
+    width: 30%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .testimonial-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+  
+  .testimonial-card img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-text {
+    text-align: center;
+  }
+  
+  .testimonial-text p {
+    font-style: italic;
+    font-size: 1.1rem;
+    color: #777;
+  }
+  
+  .testimonial-text strong {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+  }
+  
+  /* Section d'appel à l'action */
+  .cta {
+    background-color: #343a40;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    animation: fadeInUp 2s ease-in-out;
+  }
+  
+  .cta .container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  
+  .cta .btn {
+    font-size: 1.5rem;
+    padding: 15px 40px;
+    /* background-color: #28a745; */
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .cta .btn:hover {
+    /* background-color: #218838; */
+    transform: scale(1.05);
+  }
+  
+  /* Animations pour l'apparition des éléments */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Adaptations mobiles */
+  @media screen and (max-width: 768px) {
+    .testimonial-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .testimonial-card {
+      width: 80%;
+      margin-bottom: 30px;
+    }
+  
+    .cta .btn {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  

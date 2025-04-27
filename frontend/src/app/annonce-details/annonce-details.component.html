@@ -1,0 +1,45 @@
+<div class="card h-100 shadow-sm">
+  <div class="card-img-top position-relative">
+    <img *ngIf="imageUrl; else defaultImage"
+         [src]="imageUrl"
+         class="img-fluid w-100"
+         alt="Photo principale">
+         
+    <ng-template #defaultImage>
+      <img src="../../assets/images/default_house.jpg" 
+           class="img-fluid w-100" 
+           alt="Image par défaut">
+    </ng-template>
+  </div>
+  
+  <div class="card-body">
+    <h5 class="card-title">{{ annonce.titre || 'Sans titre' }}</h5>
+    <div class="card-text">
+      <p class="mb-1"><strong>Prix:</strong> {{ annonce.prix | number }} DT</p>
+      <p class="mb-1"><strong>Localisation:</strong> {{ annonce.localisation }}</p>
+      <p class="mb-1"><strong>Surface:</strong> {{ annonce.superficie }} m²</p>
+      <p class="mb-1"><strong>Pièces:</strong> {{ annonce.pieces }}</p>
+      <p class="mb-1">
+        <strong>Type:</strong> {{ annonce.typeBien }} - {{ annonce.categorie }}
+      </p>
+    </div>
+    
+    <div class="mt-3 d-flex justify-content-between">
+      <a [routerLink]="['/annonces/view', annonce.id]" 
+         class="btn btn-primary btn-sm">
+        Voir détails
+      </a>
+      
+      <div class="btn-group" *ngIf="isAuthenticated">
+        <button (click)="Ondelete(annonce.id)" 
+                class="btn btn-danger btn-sm">
+          Supprimer
+        </button>
+        <a [routerLink]="['/annonces/edit', annonce.id]" 
+           class="btn btn-warning btn-sm">
+          Modifier
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<div class="container mt-4">
+  <!-- Search and Filter Section -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <div class="row align-items-center">
+            <!-- Search Bar -->
+            <div class="col-md-4 mb-2 mb-md-0">
+              <div class="input-group">
+                <span class="input-group-text bg-primary text-white">
+                  <i class="fas fa-search"></i>
+                </span>
+                <input
+                  type="text"
+                  [(ngModel)]="search.place"
+                  (input)="filtrerAnnonces()"
+                  placeholder="Rechercher par lieu..."
+                  class="form-control"
+                />
+              </div>
+            </div>
+
+            <!-- Category Filter -->
+            <div class="col-md-3 mb-2 mb-md-0">
+              <div class="input-group">
+                <span class="input-group-text bg-primary text-white">
+                  <i class="fas fa-home"></i>
+                </span>
+                <select [(ngModel)]="search.categorie" (change)="filtrerAnnonces()" class="form-select">
+                  <option value="Toutes">Toutes les catégories</option>
+                  <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Type Filter -->
+            <div class="col-md-3 mb-2 mb-md-0">
+              <div class="input-group">
+                <span class="input-group-text bg-primary text-white">
+                  <i class="fas fa-tag"></i>
+                </span>
+                <select [(ngModel)]="search.typeBien" (change)="filtrerAnnonces()" class="form-select">
+                  <option value="Tous">Tous les types</option>
+                  <option *ngFor="let type of typesBien" [value]="type">{{ type }}</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Add Button -->
+            <div class="col-md-2" *ngIf="isAuthenticated">
+              <button class="btn btn-primary w-100" (click)="AddAnnonce()">
+                <i class="fas fa-plus-circle me-2"></i>Ajouter
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="isWaiting" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+    <p class="mt-3 text-muted">Chargement des annonces...</p>
+  </div>
+
+  <!-- No Results State -->
+  <div *ngIf="!isWaiting && annoncesFiltrees.length === 0" class="text-center py-5">
+    <div class="alert alert-info">
+      <i class="fas fa-info-circle me-2"></i>
+      Aucune annonce ne correspond à vos critères de recherche.
+    </div>
+  </div>
+
+  <!-- Annonces Grid -->
+  <div class="row g-4">
+    <div *ngFor="let annonce of annoncesFiltrees" class="col-12 col-md-6 col-lg-4">
+      <app-annonce-details 
+        [annonce]="annonce" 
+        [isAuthenticated]="isAuthenticated"
+        (annonceDeleted)="OnAnnonceDeleted($event)">
+      </app-annonce-details>
+    </div>
+  </div>
+</div>
+  

@@ -1,0 +1,146 @@
+<div class="container mt-4" *ngIf="!isLoading; else loading">
+  <div class="alert alert-danger" *ngIf="errorMessage">
+    {{ errorMessage }}
+    <button class="btn btn-link" (click)="goBack()">←RETOUR AUX ANNONCES</button>
+  </div>
+
+  <div class="card" *ngIf="annonce">
+    <!-- Header Section -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <button class="btn btn-outline-secondary mb-3" (click)="goBack()">
+          <i class="fas fa-arrow-left me-2"></i>Retour
+        </button>
+        <h1 class="display-4 fw-bold">{{ annonce.titre }}</h1>
+        <div class="d-flex align-items-center mt-2">
+          <span class="badge bg-primary me-2">{{ annonce.categorie }}</span>
+          <span class="badge bg-secondary">{{ annonce.typeBien }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Image Gallery -->
+      <div class="col-lg-8 mb-4">
+        <div class="card shadow-sm">
+          <div class="card-body p-0">
+            <div class="image-gallery">
+              <!-- Main Image -->
+              <div class="main-image-container">
+                <div *ngIf="annonce.photos && annonce.photos.length > 0; else noImages">
+                  <img [src]="'http://localhost:8080/api/images/' + annonce.photos[currentImageIndex]" 
+                       alt="Photo du bien" 
+                       class="img-fluid rounded">
+                  
+                  <!-- Navigation Buttons -->
+                  <div class="navigation-buttons" *ngIf="annonce.photos.length > 1">
+                    <button class="btn btn-dark btn-sm rounded-circle" (click)="previousImage()">
+                      <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-dark btn-sm rounded-circle" (click)="nextImage()">
+                      <i class="fas fa-chevron-right"></i>
+                    </button>
+                  </div>
+                </div>
+                <ng-template #noImages>
+                  <img src="../../assets/images/default_house.jpg" 
+                       alt="Pas d'image disponible" 
+                       class="img-fluid rounded">
+                </ng-template>
+              </div>
+
+              <!-- Thumbnails -->
+              <div class="thumbnails mt-3" *ngIf="annonce.photos && annonce.photos.length > 1">
+                <div class="row g-2">
+                  <div class="col-2" *ngFor="let photo of annonce.photos; let i = index">
+                    <img [src]="'http://localhost:8080/api/images/' + photo" 
+                         [class.active]="i === currentImageIndex"
+                         (click)="currentImageIndex = i"
+                         alt="Thumbnail" 
+                         class="img-thumbnail cursor-pointer">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Details Section -->
+      <div class="col-lg-4">
+        <div class="card shadow-sm sticky-top" style="top: 20px;">
+          <div class="card-body">
+            <!-- Price Section -->
+            <div class="text-center mb-4">
+              <h2 class="text-primary fw-bold">{{ annonce.prix | number }} TND</h2>
+            </div>
+
+            <!-- Key Features -->
+            <div class="features mb-4">
+              <div class="row g-3">
+                <div class="col-6">
+                  <div class="feature-item text-center p-3 border rounded">
+                    <i class="fas fa-ruler-combined text-primary mb-2"></i>
+                    <p class="mb-0">{{ annonce.superficie }} m²</p>
+                    <small class="text-muted">Superficie</small>
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="feature-item text-center p-3 border rounded">
+                    <i class="fas fa-door-open text-primary mb-2"></i>
+                    <p class="mb-0">{{ annonce.pieces }}</p>
+                    <small class="text-muted">Pièces</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="location mb-4">
+              <h5 class="mb-3">Localisation</h5>
+              <div class="d-flex align-items-center">
+                <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                <span>{{ annonce.localisation }}</span>
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="contact mb-4">
+              <h5 class="mb-3">Contact</h5>
+              <div class="d-flex align-items-center">
+                <i class="fas fa-phone text-primary me-2"></i>
+                <span>{{ annonce.contact }}</span>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="description">
+              <h5 class="mb-3">Description</h5>
+              <p class="text-muted">{{ annonce.description }}</p>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-4" *ngIf="isAuthenticated">
+              <div class="d-grid gap-2">
+                <button class="btn btn-warning" (click)="editAnnonce()">
+                  <i class="fas fa-edit me-2"></i>Modifier l'annonce
+                </button>
+                <button class="btn btn-danger" (click)="deleteAnnonce()">
+                  <i class="fas fa-trash me-2"></i>Supprimer l'annonce
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="d-flex justify-content-center mt-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+  </div>
+</ng-template>

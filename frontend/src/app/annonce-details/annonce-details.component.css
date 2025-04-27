@@ -1,0 +1,19 @@
+.card-img-top {
+    height: 200px; /* Fixe la hauteur de l'image */
+    object-fit: cover; /* Assure que l'image garde ses proportions tout en remplissant la zone */
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Assure que le contenu est réparti de manière optimale */
+  }
+  
+  .card-text {
+    flex: 1; /* Permet au texte de se répartir sur l'espace restant */
+  }
+  
+  .card .btn {
+    margin-top: auto; /* Place le bouton à la fin de la carte */
+  }
+  
