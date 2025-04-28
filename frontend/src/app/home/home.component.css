@@ -148,6 +148,7 @@ body {
     font-size: 2.5rem;
     font-weight: 700;
     margin-bottom: 30px;
+    color: white;
   }
   
   .cta .btn {
@@ -204,5 +205,23 @@ body {
       width: 100%;
       padding: 15px;
     }
+  }
+  
+  /* Styles pour centrer le bouton au milieu de la page */
+  .centered-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px; /* Ajustez cette valeur selon vos besoins */
+    width: 100%;
+    padding: 2rem 0;
+  }
+  
+  /* Style pour le fond sombre */
+  .dark-background {
+    background-color: #343a40; /* La couleur gris foncé que vous utilisez */
+    min-height: 100vh; /* Couvre toute la hauteur de l'écran */
+    position: relative; /* Pour le positionnement absolu des éléments enfants */
+    overflow: hidden;
   }
   

@@ -18,6 +18,7 @@ import { AnnonceViewComponent } from './annonce-view/annonce-view.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthInterceptor } from './interceptors/AuthInterceptor';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AuthInterceptor } from './interceptors/AuthInterceptor';
     FooterComponent,
     NavbarComponent,
     EditAnnonceComponent,
-    AnnonceViewComponent
+    AnnonceViewComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

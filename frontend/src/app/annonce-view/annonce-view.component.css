@@ -10,6 +10,15 @@
   border-radius: 8px;
 }
 
+.annonce-img-main {
+  width: 100%;
+  height: 400px;      /* ajuste la hauteur selon ton besoin */
+  object-fit: cover;  /* pour remplir le cadre sans déformation */
+  display: block;
+  border-radius: 8px; /* optionnel, pour l'esthétique */
+  background: #eee;   /* optionnel, couleur de fond si l'image ne remplit pas tout */
+}
+
 .main-image, .no-image-container {
   width: 100%;
   height: 100%;

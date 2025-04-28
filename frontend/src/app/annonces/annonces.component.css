@@ -28,3 +28,31 @@
     font-weight: bold;
   }
   
+  /* frontend/src/app/annonces/annonces.component.css */
+  /* Augmenter l'espacement vertical entre les annonces */
+  .gy-5 {
+    --bs-gutter-y: 3rem; /* Augmente l'espace vertical entre les rangées */
+  }
+  
+  /* Style pour les cartes d'annonce */
+  app-annonce-details {
+    display: block;
+    height: 100%;
+    margin-bottom: 2rem; /* Espace supplémentaire en bas de chaque annonce */
+  }
+  
+  /* Amélioration visuelle des filtres */
+  .input-group {
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  /* Style pour le bouton d'ajout */
+  .btn-primary {
+    transition: all 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  

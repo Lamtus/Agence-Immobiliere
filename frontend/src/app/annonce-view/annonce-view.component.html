@@ -30,7 +30,7 @@
                 <div *ngIf="annonce.photos && annonce.photos.length > 0; else noImages">
                   <img [src]="'http://localhost:8080/api/images/' + annonce.photos[currentImageIndex]" 
                        alt="Photo du bien" 
-                       class="img-fluid rounded">
+                       class="annonce-img-main rounded">
                   
                   <!-- Navigation Buttons -->
                   <div class="navigation-buttons" *ngIf="annonce.photos.length > 1">

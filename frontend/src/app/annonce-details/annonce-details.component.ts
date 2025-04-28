@@ -28,7 +28,7 @@ export class AnnonceDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     if (this.annonce?.photos?.length > 0) {
-      this.loadImage(this.annonce.photos[0]);
+      this.loadImage(this.annonce.photos[this.annonce.photos.length - 1]);
     }
   }
 

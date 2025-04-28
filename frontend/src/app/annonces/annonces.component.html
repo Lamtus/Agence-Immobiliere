@@ -1,11 +1,11 @@
 <div class="container mt-4">
   <!-- Search and Filter Section -->
-  <div class="row mb-4">
+  <div class="row mb-5">
     <div class="col-12">
       <div class="card shadow-sm">
         <div class="card-body">
           <div class="row align-items-center">
-            <!-- Search Bar -->
+            <!-- Search Bar (à gauche) -->
             <div class="col-md-4 mb-2 mb-md-0">
               <div class="input-group">
                 <span class="input-group-text bg-primary text-white">
@@ -21,8 +21,8 @@
               </div>
             </div>
 
-            <!-- Category Filter -->
-            <div class="col-md-3 mb-2 mb-md-0">
+            <!-- Category Filter (au milieu) -->
+            <div class="col-md-4 mb-2 mb-md-0">
               <div class="input-group">
                 <span class="input-group-text bg-primary text-white">
                   <i class="fas fa-home"></i>
@@ -34,8 +34,8 @@
               </div>
             </div>
 
-            <!-- Type Filter -->
-            <div class="col-md-3 mb-2 mb-md-0">
+            <!-- Type Filter (à droite) -->
+            <div class="col-md-4 mb-2 mb-md-0">
               <div class="input-group">
                 <span class="input-group-text bg-primary text-white">
                   <i class="fas fa-tag"></i>
@@ -46,11 +46,13 @@
                 </select>
               </div>
             </div>
+          </div>
 
-            <!-- Add Button -->
-            <div class="col-md-2" *ngIf="isAuthenticated">
-              <button class="btn btn-primary w-100" (click)="AddAnnonce()">
-                <i class="fas fa-plus-circle me-2"></i>Ajouter
+          <!-- Add Button (dans une nouvelle ligne) -->
+          <div class="row mt-3" *ngIf="isAuthenticated">
+            <div class="col-md-12 text-center">
+              <button class="btn btn-primary" (click)="AddAnnonce()">
+                <i class="fas fa-plus-circle me-2"></i>Ajouter une annonce
               </button>
             </div>
           </div>
@@ -75,8 +77,8 @@
     </div>
   </div>
 
-  <!-- Annonces Grid -->
-  <div class="row g-4">
+  <!-- Annonces Grid avec plus d'espace vertical -->
+  <div class="row gy-5">
     <div *ngFor="let annonce of annoncesFiltrees" class="col-12 col-md-6 col-lg-4">
       <app-annonce-details 
         [annonce]="annonce" 
@@ -86,4 +88,4 @@
     </div>
   </div>
 </div>
-  
+

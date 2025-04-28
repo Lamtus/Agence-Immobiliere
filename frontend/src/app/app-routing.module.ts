@@ -8,10 +8,12 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { EditAnnonceComponent } from './edit-annonce/edit-annonce.component';
 import { AnnonceViewComponent } from './annonce-view/annonce-view.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {path:'',component:HomeComponent},
   {path:'signin',component:SigninComponent},
+  {path:'about',component:AboutComponent},
   {path:'annonces',component:AnnoncesComponent},
   {path:'annonces/edit/:id',component:EditAnnonceComponent, canActivate: [authGuard]},
   {path:'annonces/new',component:EditAnnonceComponent, canActivate: [authGuard]},

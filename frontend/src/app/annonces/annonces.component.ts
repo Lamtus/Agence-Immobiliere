@@ -25,8 +25,8 @@ export class AnnoncesComponent implements OnInit {
   annonces!: Annonce[];
   annoncesFiltrees: Annonce[] = [];
 
-  categories: string[] = ['Toutes', 'MAISON', 'APPARTEMENT', 'VILLA','TERRAIN']; // Exemple de catégories
-  typesBien: string[] = ['Tous', 'VENTE', 'LOCATION']; // Exemple de types de bien
+  categories: string[] = ['TOUTES', 'MAISON', 'APPARTEMENT', 'VILLA','TERRAIN']; // Exemple de catégories
+  typesBien: string[] = ['TOUS', 'VENTE', 'LOCATION']; // Exemple de types de bien
 
   constructor(
     private annoncesservice: AnnonceService,
@@ -64,11 +64,11 @@ export class AnnoncesComponent implements OnInit {
           annonce.localisation.toLowerCase().includes(this.search.place.toLowerCase());
         
         const matchCategorie = this.search.categorie === '' || 
-          this.search.categorie === 'Toutes' || 
+          this.search.categorie === 'TOUTES' || 
           annonce.categorie === this.search.categorie;
         
         const matchTypeBien = this.search.typeBien === '' || 
-          this.search.typeBien === 'Tous' || 
+          this.search.typeBien === 'TOUS' || 
           annonce.typeBien === this.search.typeBien;
         
         console.log(`Annonce ${annonce.id}: location=${matchLocation}, categorie=${matchCategorie}, typeBien=${matchTypeBien}`);
